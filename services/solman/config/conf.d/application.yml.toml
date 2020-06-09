@@ -1,0 +1,3 @@
+[template]
+src = "application_template.yml"
+dest = "/usr/share/tomcat/app/config/application.yml"

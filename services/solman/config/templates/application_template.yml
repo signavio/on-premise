@@ -1,0 +1,71 @@
+server:
+  servlet:
+    session:
+      cookie:
+        name: {{getenv "SOLMAN_SERVER_COOKIE_NAME"}}
+# as long as we are running in Tomcat, this port setting is obsolete
+#  port: {{getenv "SOLMAN_SERVER_PORT"}}
+
+signavio:
+  client:
+    # the shared secret for communication between Signavio Process Manager and solman72-service
+    # must be the same as the <sharedJwtSecret> in configuration.xml
+    sharedJwtSecret: {{getenv "SOLMAN_JWT_SECRET"}}
+  platform:
+    # the URL of the Signavio Process Manager
+    # must be the same as the <server> in configuration.xml without a slash at the end
+    url: {{getenv "SOLMAN_PLATFORM_URL"}}
+    # connection timeouts have default values of 10 seconds and are optional to be configured
+    # socketTimeoutInSeconds: 10
+    # connectionCheckoutTimeoutInSeconds: 10
+    # establishConnectionTimeoutInSeconds: 10
+  resource:
+    userInfoUri: ${signavio.platform.url}{{getenv "SOLMAN_USER_INFO_URI_PATH"}}
+  #levels of nested directories to read on an export
+  maxRecursionLevel: {{getenv "SOLMAN_MAX_RECURSION_LEVEL"}}
+  # false is the default, currently only used to remove the liquibase lock on startup when it is false
+  # saas: {{getenv "SOLMAN_SAAS"}}
+
+spring:
+  datasource:
+    # Driver for MySQL (default Signavio setup)
+    driverClassName: {{getenv "SOLMAN_DS_DRIVER_CLASS_NAME"}}
+    # Driver used for Oracle DB
+    #driverClassName: oracle.jdbc.driver.OracleDriver
+    # Driver used for MS SQL Server
+    #driverClassName: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: {{getenv "SOLMAN_DS_URL"}}
+    username: {{getenv "SOLMAN_DS_USERNAME"}}
+    password: {{getenv "SOLMAN_DS_PASSWORD"}}
+    hikari:
+      maximum-pool-size: {{getenv "SOLMAN_DS_HIKARI_MAX_POOL_SIZE"}}
+  jpa:
+    database-platform: {{getenv "SOLMAN_DS_JPA_DB_PLATFORM"}}
+    hibernate:
+      ddl-auto: {{getenv "SOLMAN_DS_JPA_HIBERNATE_DDL_AUTO"}}
+
+# Only for MSSQL! If you are using an MSSQL database, you need to uncomment this line
+#spring.jpa.properties.hibernate.dialect: com.signavio.hibernate.dialect.CustomSQLServerDialect
+
+database:
+  encryption:
+    #this secret will be used to encrypt the password stored for the Solution Manager connection.
+    #do not change it after the first connection was stored, or you will not be able to decrypt the stored passwords.
+    secret: {{getenv "SOLMAN_DB_ENCRYPTION_SECRET"}}
+
+# Enable Spring Actuator endpoints
+management:
+  endpoints:
+    # disable all endpoints which are not explicitly enabled
+    enabled-by-default: {{getenv "SOLMAN_ENDPOINTS_ENABLED"}}
+    web:
+      # Map the health endpoint to /healthz
+      base-path: {{getenv "SOLMAN_ENDPOINT_BASE_PATH"}}
+      path-mapping:
+        health: {{getenv "SOLMAN_HEALTH_ENDPOINT_NAME"}}
+  endpoint.health:
+    enabled: {{getenv "SOLMAN_HEALTH_ENDPOINT_ENABLED"}}
+
+management.metrics.export.influx:
+  # disables error logs created every minute if no influx-DB to log metrics is configured.
+  enabled: {{getenv "SOLMAN_INFLUX_EXPORT_ENABLED"}}

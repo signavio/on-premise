@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><configuration>
+<licensee>All OnPremise Testlizenz Enterprise Plus mit hub</licensee>
+<admin>admin@signavio.com</admin>
+<mode>enterprise</mode>
+<guestuser>true</guestuser>
+<expires/>
+<maxVersion>13.999</maxVersion>
+<skin/>
+<includedFeaturePackage>portalInteractiveBdm</includedFeaturePackage>
+<includedFeaturePackage>enableExcel2007Reports</includedFeaturePackage>
+<includedFeaturePackage>solman72</includedFeaturePackage>
+<licensePool licenseType="a2017_enterprise_plus" poolSize="5"/>
+<licensePool licenseType="hub" poolSize="100"/>
+<kerberossso>100</kerberossso>
+<sharepointPublishing>100</sharepointPublishing>
+<autoPublishHead>false</autoPublishHead>
+<numOfLanguages>6</numOfLanguages>
+<allfilesquota>11010048000</allfilesquota>
+<singlefilequota>33554432</singlefilequota>
+<Signature xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315#WithComments"/><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#dsa-sha1"/><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"/></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/><DigestValue>bEB7njdewsRomftADROx94vZNqs=</DigestValue></Reference></SignedInfo><SignatureValue>Hfs9DXzRJ1iTtJXg7BGX26Fxn70vsJq8L+SCkl/WRvkw5H9xx/rFTw==</SignatureValue><KeyInfo><KeyValue><DSAKeyValue><P>/X9TgR11EilS30qcLuzk5/YRt1I870QAwx4/gLZRJmlFXUAiUftZPY1Y+r/F9bow9subVWzXgTuA
+HTRv8mZgt2uZUKWkn5/oBHsQIsJPu6nX/rfGG/g7V+fGqKYVDwT7g/bTxR7DAjVUE1oWkTL2dfOu
+K2HXKu/yIgMZndFIAcc=</P><Q>l2BQjxUjC8yykrmCouuEC/BYHPU=</Q><G>9+GghdabPd7LvKtcNrhXuXmUr7v6OuqC+VdMCz0HgmdRWVeOutRZT+ZxBxCBgLRJFnEj6EwoFhO3
+zwkyjMim4TwWeotUfI0o4KOuHiuzpnWRbqN/C/ohNWLx+2J6ASQ7zKTxvqhRkImog9/hWuWfBpKL
+Zl6Ae1UlZAFMO/7PSSo=</G><Y>of4QJtmi+SYFHRIXjsfnw7qMUFMICLPO7ksPrPdKTO43J/vE743d9n/Zhn6yxBCX8iG4bS+PIFRn
+GzAduxFhmW87SffzxT3vFy58UXrPJNtCs9F8HFoW0wydKXSzIvfi0AL7VeuwygBQq02txORIgtVH
+rpotH7zW55kqc8yLE08=</Y></DSAKeyValue></KeyValue></KeyInfo></Signature></configuration>
