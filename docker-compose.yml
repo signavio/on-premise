@@ -1,0 +1,74 @@
+version: "2.4"
+
+services:
+  spm:
+    image: signavio-on-premise.jfrog.io/process-manager:latest
+    hostname: ${PROCESSMANAGER_HOST:-spm.on-prem.localhost}
+    ports:
+      - "${PROCESSMANAGER_HTTP_PORT:-8080}:8080"
+    mem_limit: ${PROCESSMANAGER_MEM_LIMIT:-2048m}
+    restart: on-failure
+    env_file:
+      - ./services/process-manager/setup.env
+    environment:
+      CONFIGURATION_SIGNED:
+    networks:
+      signavio-net:
+        aliases:
+          - ${PROCESSMANAGER_HOST:-spm.on-prem.localhost}
+
+  solman:
+    build: ./services/solman
+    environment:
+      SGV_LOG_HOST: "NONE"
+    env_file:
+      - ./services/solman/setup.env
+    ports:
+      - "8084:8080"
+    restart: on-failure
+    networks:
+      - signavio-net
+
+  hub:
+    image: signavio-on-premise.jfrog.io/hub:latest
+    expose:
+      - "80"
+    restart: on-failure
+    networks:
+      - signavio-net
+
+  graphql:
+    image: signavio-on-premise.jfrog.io/graphql:latest
+    expose:
+      - "80"
+    environment:
+      SPM_API_BASE: "http://${PROCESSMANAGER_HOST:-spm.on-prem.localhost}:${PROCESSMANAGER_HTTP_PORT:-8080}"
+      SWA_API_BASE:
+      SPI_API_BASE:
+      JWT_SIGNING_KEY: "${SHARED_JWT_SECRET:-hellotest}"
+      PORT: 80
+    restart: on-failure
+    networks:
+      - signavio-net
+
+  user-mgmt:
+    image: signavio-on-premise.jfrog.io/user-mgmt:latest
+    expose:
+      - "80"
+    restart: on-failure
+    networks:
+      - signavio-net
+
+  apache:
+    build: ./services/https-apache
+    ports:
+      - "443:443"
+      - "80:80"
+    restart: on-failure
+    volumes:
+      - "./services/https-apache/certificates:/etc/ssl/certs/signavio"
+    networks:
+      - signavio-net
+
+networks:
+  signavio-net:
