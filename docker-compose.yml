@@ -2,11 +2,11 @@ version: "2.4"
 
 services:
   spm:
-    image: signavio-on-premise.jfrog.io/process-manager:latest
+    build: ./services/process-manager
     hostname: ${PROCESSMANAGER_HOST:-spm.on-prem.localhost}
     ports:
       - "${PROCESSMANAGER_HTTP_PORT:-8080}:8080"
-    mem_limit: ${PROCESSMANAGER_MEM_LIMIT:-2048m}
+    mem_limit: ${PROCESSMANAGER_MEM_LIMIT:-4096m}
     restart: on-failure
     env_file:
       - ./services/process-manager/setup.env
