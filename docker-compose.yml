@@ -30,7 +30,7 @@ services:
       - signavio-net
 
   hub:
-    image: signavio-on-premise.jfrog.io/hub:latest
+    image: signavio-on-premise.jfrog.io/suite/hub:2.2.9
     expose:
       - "80"
     restart: on-failure
@@ -38,7 +38,7 @@ services:
       - signavio-net
 
   graphql:
-    image: signavio-on-premise.jfrog.io/graphql:latest
+    image: signavio-on-premise.jfrog.io/suite/graphql:2.2.9
     expose:
       - "80"
     environment:
@@ -52,7 +52,7 @@ services:
       - signavio-net
 
   user-mgmt:
-    image: signavio-on-premise.jfrog.io/user-mgmt:latest
+    image: signavio-on-premise.jfrog.io/suite/user-mgmt:2.2.9
     expose:
       - "80"
     restart: on-failure
