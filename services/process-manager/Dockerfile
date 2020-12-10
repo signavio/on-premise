@@ -1,4 +1,4 @@
-FROM signavio-on-premise.jfrog.io/process-manager:latest
+FROM signavio-on-premise.jfrog.io/spm/process-manager:13.15.8
 
 # OPTIONAL STEP: Add your custom jdbc driver to the lib directory.
 # Uncomment then next line and adjust it accordingly:

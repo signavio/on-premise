@@ -1,4 +1,4 @@
-FROM signavio-on-premise.jfrog.io/solman:latest
+FROM signavio-on-premise.jfrog.io/spm/solman:1.21.2
 
 ENV CONFD_VERSION 0.16.0
 RUN wget -q https://github.com/kelseyhightower/confd/releases/download/v${CONFD_VERSION}/confd-${CONFD_VERSION}-linux-amd64 -O /usr/local/bin/confd && \
