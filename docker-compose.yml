@@ -38,7 +38,7 @@ services:
       - signavio-net
 
   graphql:
-    image: signavio-on-premise.jfrog.io/suite/graphql:2.2.9
+    image: signavio-on-premise.jfrog.io/suite/graphql:2.4.5.2
     expose:
       - "80"
     environment:
