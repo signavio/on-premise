@@ -30,7 +30,7 @@ services:
       - signavio-net
 
   hub:
-    image: signavio-on-premise.jfrog.io/suite/hub:2.2.9
+    image: signavio-on-premise.jfrog.io/suite/hub:2.4.5.2
     expose:
       - "80"
     restart: on-failure
