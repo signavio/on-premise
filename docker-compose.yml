@@ -52,7 +52,7 @@ services:
       - signavio-net
 
   user-mgmt:
-    image: signavio-on-premise.jfrog.io/suite/user-mgmt:2.2.9
+    image: signavio-on-premise.jfrog.io/suite/user-mgmt:2.4.5.2
     expose:
       - "80"
     restart: on-failure
