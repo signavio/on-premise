@@ -28,7 +28,7 @@ fi
 
 
 
-COMPOSE_ENVIRONMENT_VARIABLES="CONFIGURATION_SIGNED=$(cat configuration_signed.xml | base64)"
+COMPOSE_ENVIRONMENT_VARIABLES="CONFIGURATION_SIGNED=$(cat configuration_signed.xml | base64 -w0)"
 COMPOSE_COMMAND_ACTION="up"
 COMPOSE_COMMAND_FLAGS=""
 COMPOSE_COMMAND_FILES="-f docker-compose.yml"
