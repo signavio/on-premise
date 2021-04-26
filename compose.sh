@@ -50,7 +50,7 @@ do
     # SPM 
     "spm")
       echo "Adding SPM..."
-      COMPOSE_COMMAND_TARGETS+=" spm"
+      COMPOSE_COMMAND_TARGETS+=" spm solr"
       ;;
 
     # HUB - velocity edition

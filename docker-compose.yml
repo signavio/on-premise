@@ -17,6 +17,20 @@ services:
         aliases:
           - ${PROCESSMANAGER_HOST:-spm.on-prem.localhost}
 
+  solr:
+    image: signavio-on-premise.jfrog.io/spm/signavio-solr:8.8.1
+    environment:
+      SGV_LOG_HOST: "NONE"
+    ports:
+      - "8983:8983"
+    volumes:
+      - signavio-solr-volume:/var/solr/data/
+    restart: on-failure
+    networks:
+      signavio-net:
+        aliases:
+          - solr.on-prem.localhost
+
   solman:
     build: ./services/solman
     environment:
@@ -72,3 +86,6 @@ services:
 
 networks:
   signavio-net:
+
+volumes:
+  signavio-solr-volume:
