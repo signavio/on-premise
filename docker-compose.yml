@@ -21,6 +21,7 @@ services:
     image: signavio-on-premise.jfrog.io/spm/signavio-solr:8.8.1
     environment:
       SGV_LOG_HOST: "NONE"
+      SOLR_JAVA_MEM: "${SOLR_JAVA_MEM:--Xmx1g}"
     ports:
       - "8983:8983"
     volumes:
